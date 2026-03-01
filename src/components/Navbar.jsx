@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">Miyazaki</div>
+      <div className="logo">Rakusa</div>
       <ul className={`nav-links ${active ? 'active' : ''}`}>
         <li><a href="/#home" onClick={() => setActive(false)}>Home</a></li>
         <li><a href="/#about" onClick={() => setActive(false)}>About</a></li>
