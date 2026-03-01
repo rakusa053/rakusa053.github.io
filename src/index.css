@@ -26,6 +26,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  margin: 0;
 }
 
 .container {
@@ -61,6 +62,7 @@ body {
     var(--accent-secondary)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -79,6 +81,34 @@ body {
 
 .nav-links a:hover {
   color: var(--text-main);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg-dark);
+  padding: 2rem;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 /* Hero Section */
@@ -111,6 +141,7 @@ body {
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, #fff, #94a3b8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
 }
@@ -132,6 +163,9 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  display: inline-block;
 }
 
 .btn.primary {
@@ -148,6 +182,7 @@ body {
 .btn.secondary {
   border: 1px solid var(--glass-border);
   color: white;
+  background: transparent;
 }
 
 .btn.secondary:hover {
@@ -293,7 +328,21 @@ body {
 .social-links a {
   color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+}
+
+/* Reveal Animation */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -302,6 +351,9 @@ body {
   }
   .nav-links {
     display: none;
+  }
+  .menu-toggle {
+    display: flex;
   }
   .gradient-text {
     font-size: 3rem;
